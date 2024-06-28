@@ -1,0 +1,22 @@
+.navLinkMenus {
+
+    background-color: none;
+    font-weight: 600;
+    color: black;
+
+}
+
+.navLinkMenus:hover {
+
+    color: #FF3811;
+    background-color: none;
+    font-weight: 600;
+}
+
+.navLinkMenus.active {
+    background-color: none;
+    color: #FF3811;
+    font-weight: 600;
+
+}
+
