@@ -3,8 +3,26 @@ import logo from "../../../assets/logo.svg";
 import { IoSearchSharp } from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import "./Navbar.css";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+
+    const [isNavbarFixed, setIsNavbarFixed] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsNavbarFixed(true);
+            } else {
+                setIsNavbarFixed(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     const menus = <>
         <li>
@@ -32,7 +50,9 @@ const Navbar = () => {
 
         <div>
 
-            <div className="navbar bg-base-100">
+            <div className={`navbar w-full mx-auto bg-base-100 
+        ${isNavbarFixed ? 'fixed top-0 left-0 right-0 z-50 px-[62px]' : ''}`}>
+
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
