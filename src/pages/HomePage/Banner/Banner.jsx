@@ -46,13 +46,13 @@ const Banner = () => {
                         className="w-full" />
 
                     {/* Banner Body */}
-                    <div className="absolute w-full bg-gradient-to-r from-[#151515] to-[#151515]... flex items-center ps-20 h-full ">
+                    <div className="md:absolute w-full bg-gradient-to-r from-[#151515] to-[#151515]... flex items-center md:ps-20 md:h-full ">
 
-                        <div className="space-y-4 w-1/2">
+                        <div className="md:space-y-4 md:w-1/2">
                             <h2 className="text-3xl md:text-6xl text-white font-semibold md:font-bold">Affordable <br />
                                 Price For Car Servicing</h2>
 
-                            <p className="md:text-lg text-white">There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
+                            <p className="md:text-lg text-white ">There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
 
                             <div className="flex items-center gap-6">
                                 <button className="bg-[#FF3811] text-white text-lg font-medium px-4 py-2 rounded-lg">Discover More</button>
