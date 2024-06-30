@@ -8,11 +8,8 @@ const Root = () => {
 
         <div className="max-w-full">
 
-            <div className="w-11/12 mx-auto">
-                <Navbar></Navbar>
-                <Outlet></Outlet>
-            </div>
-
+            <Navbar></Navbar>
+            <Outlet></Outlet>
             <Footer></Footer>
 
         </div>

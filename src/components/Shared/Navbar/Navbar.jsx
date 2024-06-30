@@ -50,8 +50,8 @@ const Navbar = () => {
 
         <div>
 
-            <div className={`navbar w-full mx-auto bg-base-100 
-        ${isNavbarFixed ? 'fixed top-0 left-0 right-0 z-50 px-[62px]' : ''}`}>
+            <div className={`navbar w-full bg-base-100 md:px-14  
+        ${isNavbarFixed ? 'fixed top-0 left-0 right-0 z-50' : ''}`}>
 
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -81,7 +81,7 @@ const Navbar = () => {
                     </div>
 
                     <Link to={"/"}>
-                        <img src={logo} alt="" />
+                        <img className="w-14 md:w-24" src={logo} alt="Logo" />
                     </Link>
 
                 </div>
@@ -94,7 +94,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Navbar End */}
-                <div className="navbar-end">
+                <div className="navbar-end mr-6 md:mr-0">
 
                     <button className="btn-circle text-2xl">
                         <IoSearchSharp />
@@ -104,7 +104,7 @@ const Navbar = () => {
                         <HiOutlineShoppingBag />
                     </button>
 
-                    <button className="text-[#FF3811] text-lg font-medium border border-[#FF3811] rounded-lg px-4 py-2 ms-1">
+                    <button className="text-[#FF3811] text-base md:text-lg font-medium border border-[#FF3811] rounded-lg px-2 py-1 md:px-4 md:py-2 ms-1">
                         Appointment
                     </button>
                 </div>
