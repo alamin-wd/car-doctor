@@ -8,9 +8,7 @@ const Footer = () => {
                 <aside>
                     <img src="../../../../public/logo.svg" alt="" />
                     <p>
-                        ACME Industries Ltd.
-                        <br />
-                        Providing reliable tech since 1992
+                    Edwin Diaz is a software and web technologies engineer, <br /> a life coach trainer who is also a serial .
                     </p>
                 </aside>
                 <nav>
@@ -23,9 +21,9 @@ const Footer = () => {
                 <nav>
                     <h6 className="footer-title">Company</h6>
                     <a className="link link-hover">About us</a>
+                    <a className="link link-hover">Blog</a>
                     <a className="link link-hover">Contact</a>
                     <a className="link link-hover">Jobs</a>
-                    <a className="link link-hover">Press kit</a>
                 </nav>
                 <nav>
                     <h6 className="footer-title">Legal</h6>
