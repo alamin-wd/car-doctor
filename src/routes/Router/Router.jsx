@@ -5,38 +5,50 @@ import About from "../../pages/About/About";
 import Services from "../../pages/Services/Services";
 import Blog from "../../pages/Blog/Blog";
 import Contact from "../../pages/Contact/Contact";
+import SignUp from "../../pages/SignUp/SignUp";
+import SignIn from "../../pages/SignIn/SignIn";
 
 const router = createBrowserRouter([
     {
-      path: "/",
-      element: <Root></Root>,
-      children: [
-        {
-            path: "/",
-            element: <Home></Home>,
-        },
+        path: "/",
+        element: <Root></Root>,
+        children: [
+            {
+                path: "/",
+                element: <Home></Home>,
+            },
 
-        {
-            path: "/about",
-            element: <About></About>,
-        },
+            {
+                path: "/about",
+                element: <About></About>,
+            },
 
-        {
-            path: "/services",
-            element: <Services></Services>,
-        },
+            {
+                path: "/services",
+                element: <Services></Services>,
+            },
 
-        {
-            path: "/blog",
-            element: <Blog></Blog>,
-        },
+            {
+                path: "/blog",
+                element: <Blog></Blog>,
+            },
 
-        {
-            path: "/contact",
-            element: <Contact></Contact>,
-        }
-      ]
+            {
+                path: "/contact",
+                element: <Contact></Contact>,
+            },
+
+            {
+                path: "/signUp",
+                element: <SignUp></SignUp>,
+            },
+
+            {
+                path: "/signIn",
+                element: <SignIn></SignIn>,
+            }
+        ]
     },
-  ]);
+]);
 
-  export default router;
+export default router;
