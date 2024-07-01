@@ -8,6 +8,7 @@ import { PiMapPinAreaBold } from "react-icons/pi";
 import TestimonialCard from "../TestimonialCard/TestimonialCard";
 import Team from "../Team/Team";
 import Products from "../Products/Products";
+import Services from "../../Services/Services";
 
 
 const Home = () => {
@@ -29,6 +30,24 @@ const Home = () => {
                 {/* About Us Section */}
                 <div className="my-20">
                     <About></About>
+                </div>
+
+                {/* Services Section */}
+                <div className="my-10">
+                    <div className="md:w-1/2 mx-auto text-center space-y-4">
+                        <h5 className="text-lg text-[#FF3811]">Services</h5>
+
+                        <h3 className="text-3xl md:text-5xl text-[#151515] font-bold">Our Services Area</h3>
+
+                        <p className="text-[#737373]">
+                            The majority have suffered alteration in some form, by injected humour, or randomized words which do not look even slightly believable.
+                        </p>
+                    </div>
+
+                    <div className="mt-6">
+                        <Services></Services>
+                    </div>
+
                 </div>
 
                 {/* Extra Section */}

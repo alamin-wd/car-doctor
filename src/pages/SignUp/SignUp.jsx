@@ -1,17 +1,32 @@
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import signUpImg from "../../assets/images/login/login.svg";
 import SocialLogins from "../SocialLogins/SocialLogins";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const SignUp = () => {
 
+    const {createUser} = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
 
     const handleSignUp = (e) => {
         e.preventDefault();
 
+        const form = e.target;
+
+        // const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        // console.log(name, email, password);
+
+        createUser(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => console.log(error))
     };
 
     return (
@@ -19,7 +34,8 @@ const SignUp = () => {
         <div className="w-11/12 mx-auto flex flex-col md:flex-row  md:items-center gap-10 my-10">
 
             <div className="md:w-1/2 md:ml-28">
-                <img src={signUpImg} alt="" />
+                <img
+                    src={signUpImg} alt="" />
             </div>
 
             <div className="md:w-1/2">
@@ -63,14 +79,16 @@ const SignUp = () => {
                                 placeholder="Password"
                                 className="input input-bordered" />
 
-                            <button className="absolute inset-y-0 right-3 mt-8"
-                                onClick={() => setShowPassword(!showPassword)}>
-                                {
-                                    showPassword ?
-                                        <IoMdEyeOff />
-                                        :
-                                        <IoMdEye />
-                                }
+                            <button
+                                type="button"
+                                className="absolute inset-y-0 right-3 mt-8"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setShowPassword(!showPassword);
+                                }}>
+
+                                {showPassword ? <IoMdEye /> : <IoMdEyeOff />}
+
                             </button>
 
                         </div>
