@@ -9,8 +9,10 @@ const Root = () => {
         <div className="max-w-full">
 
             <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
+            <div className="mt-24">
+                <Outlet></Outlet>
+                <Footer></Footer>
+            </div>
 
         </div>
     );

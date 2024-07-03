@@ -6,7 +6,7 @@ const About = () => {
 
     return (
 
-        <div>
+        <div className="w-11/12 mx-auto border border-white">
 
             <Helmet>
                 <title>About - Car Doctor</title>

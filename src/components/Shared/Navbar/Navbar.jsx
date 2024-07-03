@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../../assets/logo.svg";
+import logo from "/logo.svg";
 import { IoSearchSharp } from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import "./Navbar.css";
@@ -7,22 +7,27 @@ import { useEffect, useState } from "react";
 
 const Navbar = () => {
 
-    const [isNavbarFixed, setIsNavbarFixed] = useState(false);
+    // State to track the visibility of the navbar and last scroll position
+    const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 0) {
-                setIsNavbarFixed(true);
+            if (window.scrollY > lastScrollY) {
+                // Scrolling down
+                setIsNavbarVisible(false);
             } else {
-                setIsNavbarFixed(false);
+                // Scrolling up
+                setIsNavbarVisible(true);
             }
+            setLastScrollY(window.scrollY);
         };
 
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [lastScrollY]);
 
     const menus = <>
         <li>
@@ -50,8 +55,8 @@ const Navbar = () => {
 
         <div>
 
-            <div className={`navbar w-full bg-base-100 md:px-14  
-        ${isNavbarFixed ? 'fixed top-0 left-0 right-0 z-50' : ''}`}>
+            <div className={`navbar w-full bg-base-100 md:px-14 transition-top duration-500
+        ${isNavbarVisible ? 'fixed top-0 left-0 right-0 z-50' : 'fixed -top-[82px] left-0 right-0 z-50 bg-transparent'}`}>
 
                 <div className="navbar-start">
                     <div className="dropdown">

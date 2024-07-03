@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const ServiceCard = ({ service }) => {
 
-    const { title, img, price } = service;
+    const {_id, title, img, price } = service;
 
     return (
 
@@ -22,7 +22,8 @@ const ServiceCard = ({ service }) => {
                 <div className="flex justify-between items-center text-[#FF3811]">
                     <h4 className="text-lg font-semibold">
                         Price: <span>${price}</span></h4>
-                    <Link>
+
+                    <Link to={`/serviceDetails/${_id}`}>
                         <button className="mt-1 hover:translate-x-1 hover:transition-all">
                             <FaArrowRight />
                         </button>

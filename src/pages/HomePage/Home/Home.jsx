@@ -10,7 +10,6 @@ import Team from "../Team/Team";
 import Products from "../Products/Products";
 import Services from "../../Services/Services";
 
-
 const Home = () => {
 
     return (
@@ -25,12 +24,12 @@ const Home = () => {
 
             <Banner></Banner>
 
-            <body className="w-11/12 mx-auto">
+            {/* About Us Section */}
+            <div>
+                <About></About>
+            </div>
 
-                {/* About Us Section */}
-                <div className="my-20">
-                    <About></About>
-                </div>
+            <section className="w-11/12 mx-auto">
 
                 {/* Services Section */}
                 <div className="my-10">
@@ -153,7 +152,7 @@ const Home = () => {
                     </div>
 
                 </div>
-            </body>
+            </section>
 
         </div>
     );
