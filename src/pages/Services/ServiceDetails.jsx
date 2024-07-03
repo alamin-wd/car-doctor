@@ -26,26 +26,28 @@ const ServiceDetails = () => {
         <div className="w-11/12 mx-auto my-10">
 
             <Helmet>
-                <title>Service Details - Services - Car Doctor</title>
+                <title>Service Details - {title}</title>
             </Helmet>
 
             {/* Page Banner */}
-            <div className="relative w-full">
-                <img className="w-full" src={servicePageBanner} />
+            <div className="py-6">
+                <div className="relative w-full">
+                    <img className="w-full" src={servicePageBanner} />
 
-                <div className="w-full absolute top-0 bg-gradient-to-r from-[#151515] to-[#151515]... flex items-center h-full rounded-lg">
+                    <div className="w-full absolute top-0 bg-gradient-to-r from-[#151515] to-[#151515]... flex items-center h-full rounded-lg">
 
-                    <div className="w-full text-center">
-                        <h2 className="text-3xl md:text-5xl text-white font-bold">Service Details</h2>
+                        <div className="w-full text-center">
+                            <h2 className="text-3xl md:text-5xl text-white font-bold">Service Details</h2>
+                        </div>
                     </div>
-                </div>
 
-                {/* Breadcrumb */}
-                <div className="absolute bottom-0 inset-x-10 breadcrumbs text-sm md:bg-[#FF3811] w-1/2 md:w-1/6 mx-auto">
-                    <ul className="mx-5 text-white">
-                        <li><a>Home</a></li>
-                        <li><a>Service Details</a></li>
-                    </ul>
+                    {/* Breadcrumb */}
+                    <div className="absolute bottom-0 inset-x-10 breadcrumbs text-sm md:bg-[#FF3811] w-1/2 md:w-1/6 mx-auto">
+                        <ul className="mx-5 text-white">
+                            <li><a>Home</a></li>
+                            <li><a>Service Details</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -208,7 +210,7 @@ const ServiceDetails = () => {
                                 Save up to <span className="text-[#FF3811] text-xl">60% off</span>
                             </h5>
 
-                            <button className="absolute -bottom-[18px] inset-x-4 w-1/2 mx-auto bg-[#FF3811] text-white text-lg font-semibold text-center p-2 rounded-lg">Get A Quote</button>
+                            <button className="absolute -bottom-[18px] inset-x-4 w-1/2 mx-auto bg-[#FF3811] hover:bg-[#d23111] text-white text-lg font-semibold text-center p-2 rounded-lg">Get A Quote</button>
                         </div>
                     </div>
 
@@ -216,7 +218,7 @@ const ServiceDetails = () => {
 
                         <h3 className="text-[#151515] text-3xl font-bold my-4">Price: ${price}</h3>
 
-                        <Link to={`/serviceDetails/${_id}`}>
+                        <Link to={`/checkout/${_id}`}>
                             <button className="w-full bg-[#FF3811] hover:bg-[#d23111] text-white text-lg text-center font-semibold p-2 rounded-md">Proceed Checkout</button>
                         </Link>
 

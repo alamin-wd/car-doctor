@@ -1,15 +1,19 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "/logo.svg";
 import { IoSearchSharp } from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import "./Navbar.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
+
+    const { user, setUser, LogOut } = useContext(AuthContext);
 
     // State to track the visibility of the navbar and last scroll position
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -28,6 +32,17 @@ const Navbar = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, [lastScrollY]);
+
+    const handleSignOut = () => {
+        LogOut()
+            .then(() => {
+                setUser(null);
+                navigate('/');
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
 
     const menus = <>
         <li>
@@ -109,9 +124,50 @@ const Navbar = () => {
                         <HiOutlineShoppingBag />
                     </button>
 
-                    <button className="text-[#FF3811] text-base md:text-lg font-medium border border-[#FF3811] rounded-lg px-2 py-1 md:px-4 md:py-2 ms-1">
-                        Appointment
-                    </button>
+                    <div className="flex items-center gap-3">
+                        {!user ? (
+                            <>
+                                <NavLink to="/signIn">
+                                    <button className="bg-[#FF3811] hover:bg-[#d23111] px-4 py-2 text-white rounded-lg">Sign In</button>
+                                </NavLink>
+
+                                <NavLink to="/signUp">
+                                    <button className="bg-[#FF3811] hover:bg-[#d23111] px-4 py-2 text-white rounded-lg">Sign Up</button>
+                                </NavLink>
+                            </>
+                        ) : (
+                            <div className="flex items-center gap-3">
+
+
+                                <button className="text-[#FF3811] text-base md:text-lg font-medium border border-[#FF3811] rounded-lg px-2 py-1 md:px-4 md:py-2 ms-1">
+                                    Appointment
+                                </button>
+
+                                <div className="dropdown dropdown-end">
+                                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-12 rounded-full">
+                                            <img src={user.photoURL} alt="User Avatar" />
+                                        </div>
+                                    </label>
+
+                                    <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-200 rounded-lg w-40">
+                                        <li>
+                                            <a>{user.displayName}</a>
+                                        </li>
+                                        <li>
+                                            <a href="/updateItems">Update Items</a>
+                                        </li>
+
+                                        <li>
+                                            <a onClick={handleSignOut}>Sign Out</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
                 </div>
             </div>
 
